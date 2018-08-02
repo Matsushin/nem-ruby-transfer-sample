@@ -1,11 +1,8 @@
 class AccountsController < ApplicationController
 
   def show
-    require 'pp'
-    require 'nem'
-    node = Nem::Node.new(host: 'bigalice2.nem.ninja')
-    account_endpoint = Nem::Endpoint::Account.new(node)
-    @account = account_endpoint.find(account_params[:address])
+    account = Account.new
+    @account_info = account.get_info(account_params[:address])
   end
 
   private
