@@ -1,0 +1,7 @@
+%h2 アドレス入力
+= simple_form_for(:account, url: accounts_path, method: :get) do |f|
+  = f.error_notification
+  .form-group
+    = f.input :address
+  .form-action
+    = f.button :submit, class: 'btn btn-primary btn', data: { disable_with: '送信中...' }
