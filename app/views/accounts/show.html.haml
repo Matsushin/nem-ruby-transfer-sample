@@ -1,3 +1,18 @@
 %h2 アカウント情報
-%p= @account.address
-%p= @account.balance.to_f / 1000000
+%p アドレス：#{@account.address}
+%p 残高： #{@account.balance.to_f / 1000000}XEM
+
+%h2 送金
+.row
+  .col-md-6
+    = simple_form_for(:transfer, url: transfers_path, remote: true) do |f|
+      = f.error_notification
+      .form-group
+        = f.input :recipient, required: false
+        = f.input :private_key, required: false
+        = f.input :amount, required: false, input_html: { class: 'fit-input' }
+      .form-action
+        = f.button :submit, 'XEMを送金する', class: 'btn btn-primary btn', data: { disable_with: '送信中...' }
+
+%h2 送金結果
+.js-transfer-result

@@ -1,7 +1,9 @@
-%h2 アドレス入力
-= simple_form_for(:account, url: accounts_path, method: :get) do |f|
-  = f.error_notification
-  .form-group
-    = f.input :address
-  .form-action
-    = f.button :submit, class: 'btn btn-primary btn', data: { disable_with: '送信中...' }
+%h2 アカウント情報の取得
+.row
+  .col-md-6
+    = simple_form_for(:account, url: accounts_path, method: :get) do |f|
+      = f.error_notification
+      .form-group
+        = f.input :address, required: false, placeholder: 'ここにNEMアドレスを入力して下さい。'
+      .form-action
+        = f.button :submit, 'アカウント情報を取得する', class: 'btn btn-primary btn', data: { disable_with: '送信中...' }
