@@ -1,0 +1,9 @@
+ja:
+  simple_form:
+    labels:
+      account:
+        address: アドレス
+      transfer:
+        private_key: 秘密鍵
+        recipient: 送金先アドレス
+        amount: 送金量
